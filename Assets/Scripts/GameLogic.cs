@@ -29,6 +29,12 @@ public class GameLogic : MonoBehaviour
     void Update()
     {
         gameState.distanceTraveled = Mathf.RoundToInt(player.transform.position.z);
+
+        // Constantly check if BAC gets to <= 0.00% (GAME OVER)
+        if (gameState.bacPercent <= 0.00f)
+        {
+            GameOver();
+        }
     }
 
     public void CollectedBoozeBottle()
@@ -49,5 +55,16 @@ public class GameLogic : MonoBehaviour
     public void CollectedBreathalyzer()
     {
 
+    }
+
+    public void GameOver()
+    {
+        // play crash sound
+        
+        //make screen black
+        // pause main game stuff so score, distance, stats etc. are halted
+
+            // ui pops up, "Wasted" (gives different text based on what happened i.e. "Wasted", "Hangover" (BAC hits 0.00%), "Crashed" (crashed, duh))
+            // DRIVE AGAIN?  RETURN TO MENU?
     }
 }

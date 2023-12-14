@@ -21,6 +21,12 @@ public class Player : MonoBehaviour
             spawnManager.SpawnTriggerEntered();
         }
 
+        if (collision.CompareTag("EnemyCar"))
+        {
+            Debug.Log("You crashed!");
+            gameLogic.GameOver();
+        }
+
         if (collision.CompareTag("BoozeBottle"))
         {
             gameLogic.CollectedBoozeBottle();

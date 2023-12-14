@@ -8,6 +8,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1384095969250144, guid: ab26596a331d7ee43a3e9d29e2be9f84, type: 3}
+      propertyPath: m_TagString
+      value: EnemyCar
+      objectReference: {fileID: 0}
     - target: {fileID: 1646981259178978, guid: ab26596a331d7ee43a3e9d29e2be9f84, type: 3}
       propertyPath: m_Name
       value: EnemyCar1
