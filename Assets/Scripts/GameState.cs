@@ -10,4 +10,8 @@ public class GameState : ScriptableObject
     public float scoreMultiplier { get; set; }
     public float score { get; set; }
     public float distanceTraveled { get; set; }
+    public int boozeCollected { get; set; }
+    public int bourbonCollected { get; set; }
+    public int waterBottlesCollected { get; set; }
+    public bool isGameOver { get; set; }
 }

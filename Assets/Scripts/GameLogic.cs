@@ -21,6 +21,10 @@ public class GameLogic : MonoBehaviour
         gameState.bacPercent = 0.02f;
         gameState.score = 0;
         gameState.distanceTraveled = 0;
+        gameState.boozeCollected = 0;
+        gameState.bourbonCollected = 0;
+        gameState.waterBottlesCollected = 0;
+        gameState.isGameOver = false;
 
         player = GameObject.Find("Player");
     }
@@ -40,16 +44,19 @@ public class GameLogic : MonoBehaviour
     public void CollectedBoozeBottle()
     {
         gameState.bacPercent += 0.01f;
+        gameState.boozeCollected += 1;
     }
 
     public void CollectedBourbonBottle()
     {
         gameState.bacPercent += 0.02f;
+        gameState.bourbonCollected += 1;
     }
 
     public void CollectedWaterBottle()
     {
         gameState.bacPercent -= 0.0125f;
+        gameState.waterBottlesCollected += 1;
     }
 
     public void CollectedBreathalyzer()
@@ -59,6 +66,7 @@ public class GameLogic : MonoBehaviour
 
     public void GameOver()
     {
+        gameState.isGameOver = true;
         // play crash sound
         
         //make screen black
