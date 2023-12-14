@@ -12,6 +12,9 @@ public class UIScript : MonoBehaviour
     TextMeshProUGUI distanceTraveled;
 
     [SerializeField]
+    TextMeshProUGUI bacPercent;
+
+    [SerializeField]
     GameState gameState;
 
     // Start is called before the first frame update
@@ -24,5 +27,6 @@ public class UIScript : MonoBehaviour
     void Update()
     {
         distanceTraveled.text = gameState.distanceTraveled.ToString() + "m";
+        bacPercent.text = gameState.bacPercent.ToString("F2") + "% BAC";
     }
 }
