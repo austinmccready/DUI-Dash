@@ -14,6 +14,11 @@ public class ObstacleSpawner : MonoBehaviour
     private int collectableLastSpawnZ = 60;
     private int collectableSpawnAmount = 5;
 
+    private int enemyCarInitAmount = 5;
+    private int enemyCarSpawnInterval = 60;
+    private int enemyCarLastSpawnZ = 60;
+    private int enemyCarSpawnAmount = 5;
+
     private float roadWidth = 12f;
 
     [SerializeField]
@@ -21,6 +26,9 @@ public class ObstacleSpawner : MonoBehaviour
 
     [SerializeField]
     public List<GameObject> collectables;
+
+    [SerializeField]
+    public List<GameObject> enemyCars;
 
     // Start is called before the first frame update
     void Start()
@@ -68,6 +76,21 @@ public class ObstacleSpawner : MonoBehaviour
                 GameObject collectable = collectables[Random.Range(0, collectables.Count)];
                 float spawnX = Random.Range(-roadWidth / 2, roadWidth / 2);
                 Instantiate(collectable, new Vector3(spawnX, 0.4f, collectableLastSpawnZ), collectable.transform.rotation);
+            }
+        }
+    }
+
+    public void SpawnEnemyCars()
+    {
+        for (int i = 0; i < enemyCarSpawnAmount; i++)
+        {
+            enemyCarLastSpawnZ += enemyCarSpawnInterval;
+
+            if (Random.Range(0, 5) == 1)
+            {
+                GameObject enemyCar = enemyCars[Random.Range(0, enemyCars.Count)];
+                float spawnX = Random.Range(-roadWidth / 2, roadWidth / 2);
+                Instantiate(enemyCar, new Vector3(spawnX, -0.2f, enemyCarLastSpawnZ), enemyCar.transform.rotation);
             }
         }
     }

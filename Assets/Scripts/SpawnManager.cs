@@ -28,5 +28,6 @@ public class SpawnManager : MonoBehaviour
         plotSpawner.SpawnSidePlot();
         //obstacleSpawner.SpawnObstacles();
         obstacleSpawner.SpawnCollectables();
+        obstacleSpawner.SpawnEnemyCars();
     }
 }

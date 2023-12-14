@@ -9,6 +9,7 @@ TagManager:
   - BourbonBottle
   - WaterBottle
   - Breathalyzer
+  - EnemyCar
   layers:
   - Default
   - TransparentFX
