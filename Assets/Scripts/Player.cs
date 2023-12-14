@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    public SpawnManager spawnManager;
+
     private GameLogic gameLogic;
 
     private void Awake()
@@ -13,6 +15,12 @@ public class Player : MonoBehaviour
 
     private void OnTriggerEnter(Collider collision)
     {
+        if (collision.CompareTag("SpawnTrigger"))
+        {
+            Debug.Log("Entered SpawnTrigger");
+            spawnManager.SpawnTriggerEntered();
+        }
+
         if (collision.CompareTag("BoozeBottle"))
         {
             gameLogic.CollectedBoozeBottle();

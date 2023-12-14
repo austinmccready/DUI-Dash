@@ -393,23 +393,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 136018460000939416, guid: a00ef768dbc458c49b48d4172fcdc73f, type: 3}
       propertyPath: m_Height
-      value: 4.161628
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 136018460000939416, guid: a00ef768dbc458c49b48d4172fcdc73f, type: 3}
       propertyPath: m_Radius
-      value: 0.8018099
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 136018460000939416, guid: a00ef768dbc458c49b48d4172fcdc73f, type: 3}
       propertyPath: m_Center.x
-      value: -0.018498302
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 136018460000939416, guid: a00ef768dbc458c49b48d4172fcdc73f, type: 3}
       propertyPath: m_Center.y
-      value: 0.42357454
+      value: 1.25
       objectReference: {fileID: 0}
     - target: {fileID: 136018460000939416, guid: a00ef768dbc458c49b48d4172fcdc73f, type: 3}
       propertyPath: m_Center.z
-      value: -0.13232088
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 136018460000939416, guid: a00ef768dbc458c49b48d4172fcdc73f, type: 3}
       propertyPath: m_Direction
@@ -448,6 +448,7 @@ GameObject:
   - component: {fileID: 473400646}
   - component: {fileID: 473400645}
   - component: {fileID: 473400648}
+  - component: {fileID: 473400649}
   m_Layer: 0
   m_Name: SpawnManager
   m_TagString: Untagged
@@ -519,6 +520,23 @@ MonoBehaviour:
   - {fileID: 4749476063342206814, guid: aeef8f2a347e8364e8aeedc2b5d6d268, type: 3}
   - {fileID: 4749476063342206814, guid: 2eef13fd08b62a046bdd53a42e9871b0, type: 3}
   - {fileID: 4749476063342206814, guid: 43848abc98cb4534bba5f425cbf75bed, type: 3}
+--- !u!114 &473400649
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 473400644}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c917acfd1fae2524794bd4ac6e9dc679, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  obstacles: []
+  collectables:
+  - {fileID: 9086896065498463304, guid: d4571e8182500a149a220c5808f204fb, type: 3}
+  - {fileID: 5066340988505973283, guid: 429b42db857d81a439c8dfd850748ed4, type: 3}
+  - {fileID: 3324544315820973082, guid: 5b4158f663c9bec4b95f506545d38ef2, type: 3}
 --- !u!1001 &477378608
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1320,7 +1338,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3324544315820973082, guid: 5b4158f663c9bec4b95f506545d38ef2, type: 3}
       propertyPath: m_Name
-      value: Bottle
+      value: Water Bottle
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
