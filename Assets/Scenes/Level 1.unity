@@ -383,6 +383,14 @@ PrefabInstance:
       propertyPath: castType
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114540904711939494, guid: a00ef768dbc458c49b48d4172fcdc73f, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114540904711939494, guid: a00ef768dbc458c49b48d4172fcdc73f, type: 3}
+      propertyPath: colliderThickness
+      value: 0.8
+      objectReference: {fileID: 0}
     - target: {fileID: 114641349554333832, guid: a00ef768dbc458c49b48d4172fcdc73f, type: 3}
       propertyPath: cameraSpeed
       value: 50
@@ -405,7 +413,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 136018460000939416, guid: a00ef768dbc458c49b48d4172fcdc73f, type: 3}
       propertyPath: m_Radius
-      value: 0.5
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 136018460000939416, guid: a00ef768dbc458c49b48d4172fcdc73f, type: 3}
       propertyPath: m_Center.x

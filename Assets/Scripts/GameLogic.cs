@@ -1,3 +1,4 @@
+using CMF;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -67,6 +68,10 @@ public class GameLogic : MonoBehaviour
     public void GameOver()
     {
         gameState.isGameOver = true;
+        player.GetComponent<AdvancedWalkerController>().enabled = false;
+        player.GetComponent<CharacterKeyboardInput>().enabled = false;
+
+        player.GetComponent<Rigidbody>().velocity = Vector3.zero;
         // play crash sound
         
         //make screen black
