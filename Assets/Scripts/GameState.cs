@@ -9,4 +9,5 @@ public class GameState : ScriptableObject
     public float bacPercent { get; set; }
     public float scoreMultiplier { get; set; }
     public float score { get; set; }
+    public float distanceTraveled { get; set; }
 }
