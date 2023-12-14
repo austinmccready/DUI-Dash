@@ -41,6 +41,10 @@ public class EnemyCarAI : MonoBehaviour
             enemyRb.AddForce(lookDirection * movementSpeed * 0.2f);
         }
 
+        // Rotate the enemy car to face the direction of movement
+        Quaternion toRotation = Quaternion.LookRotation(lookDirection, Vector3.up);
+        transform.rotation = Quaternion.Slerp(transform.rotation, toRotation, Time.deltaTime * 5f);
+
         if ((transform.position.z - player.transform.position.z) < -3f)
         {
             Destroy(gameObject);

@@ -388,8 +388,12 @@ PrefabInstance:
       value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 114662181522014216, guid: a00ef768dbc458c49b48d4172fcdc73f, type: 3}
+      propertyPath: airFriction
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114662181522014216, guid: a00ef768dbc458c49b48d4172fcdc73f, type: 3}
       propertyPath: movementSpeed
-      value: 35
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 114686664363620640, guid: a00ef768dbc458c49b48d4172fcdc73f, type: 3}
       propertyPath: jumpKey
@@ -431,6 +435,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1798185399542480, guid: a00ef768dbc458c49b48d4172fcdc73f, type: 3}
       insertIndex: -1
       addedObject: {fileID: 511134092}
+    - targetCorrespondingSourceObject: {fileID: 1493032110687440, guid: a00ef768dbc458c49b48d4172fcdc73f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 686395463}
+    - targetCorrespondingSourceObject: {fileID: 1493032110687440, guid: a00ef768dbc458c49b48d4172fcdc73f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 686395462}
   m_SourcePrefab: {fileID: 100100000, guid: a00ef768dbc458c49b48d4172fcdc73f, type: 3}
 --- !u!4 &432415288 stripped
 Transform:
@@ -837,6 +847,93 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8084006729439166870, guid: 74af520459b6549468c544f9ee6b3143, type: 3}
   m_PrefabInstance: {fileID: 216480171}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &686395458 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1493032110687440, guid: a00ef768dbc458c49b48d4172fcdc73f, type: 3}
+  m_PrefabInstance: {fileID: 432415287}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &686395459 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4910457414947458, guid: a00ef768dbc458c49b48d4172fcdc73f, type: 3}
+  m_PrefabInstance: {fileID: 432415287}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &686395462
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 686395458}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 948f4100a11a5c24981795d21301da5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  volumeTrigger: {fileID: 686395459}
+  volumeLayer:
+    serializedVersion: 2
+    m_Bits: 1
+  stopNaNPropagation: 1
+  finalBlitToCameraTarget: 0
+  antialiasingMode: 0
+  temporalAntialiasing:
+    jitterSpread: 0.75
+    sharpness: 0.25
+    stationaryBlending: 0.95
+    motionBlending: 0.85
+  subpixelMorphologicalAntialiasing:
+    quality: 2
+  fastApproximateAntialiasing:
+    fastMode: 0
+    keepAlpha: 0
+  fog:
+    enabled: 1
+    excludeSkybox: 1
+  debugLayer:
+    lightMeter:
+      width: 512
+      height: 256
+      showCurves: 1
+    histogram:
+      width: 512
+      height: 256
+      channel: 3
+    waveform:
+      exposure: 0.12
+      height: 256
+    vectorscope:
+      size: 256
+      exposure: 0.12
+    overlaySettings:
+      linearDepth: 0
+      motionColorIntensity: 4
+      motionGridSize: 64
+      colorBlindnessType: 0
+      colorBlindnessStrength: 1
+  m_Resources: {fileID: 11400000, guid: d82512f9c8e5d4a4d938b575d47f88d4, type: 2}
+  m_ShowToolkit: 0
+  m_ShowCustomSorter: 0
+  breakBeforeColorGrading: 0
+  m_BeforeTransparentBundles: []
+  m_BeforeStackBundles: []
+  m_AfterStackBundles: []
+--- !u!114 &686395463
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 686395458}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b9a305e18de0c04dbd257a21cd47087, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sharedProfile: {fileID: 11400000, guid: 3619903adcf0a5443a95c319b1e29b19, type: 2}
+  isGlobal: 1
+  blendDistance: 0
+  weight: 1
+  priority: 0
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
