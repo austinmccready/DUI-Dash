@@ -9,6 +9,9 @@ public class UIScript : MonoBehaviour
     TextMeshProUGUI playerName;
 
     [SerializeField]
+    TextMeshProUGUI distanceTraveled;
+
+    [SerializeField]
     GameState gameState;
 
     // Start is called before the first frame update
@@ -20,6 +23,6 @@ public class UIScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        distanceTraveled.text = gameState.distanceTraveled.ToString() + "m";
     }
 }
