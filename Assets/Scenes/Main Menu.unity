@@ -1756,6 +1756,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerNameField: {fileID: 0}
+  gameState: {fileID: 0}
 --- !u!1 &764336801
 GameObject:
   m_ObjectHideFlags: 0
@@ -2583,6 +2584,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerNameField: {fileID: 354012767}
+  gameState: {fileID: 11400000, guid: 083c2d51f0161e446aeb8915f5e9f2ec, type: 2}
 --- !u!1 &1377332959
 GameObject:
   m_ObjectHideFlags: 0

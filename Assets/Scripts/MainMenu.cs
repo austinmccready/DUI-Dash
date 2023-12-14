@@ -11,9 +11,12 @@ public class MainMenu : MonoBehaviour
     [SerializeField]
     TMP_InputField playerNameField;
 
+    [SerializeField]
+    GameState gameState;
+
     public void PlayGame()
     {
-        SetPlayerName(playerNameField.text);
+        gameState.playerName = playerNameField.text;
 
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
@@ -27,6 +30,6 @@ public class MainMenu : MonoBehaviour
     {
         GameState gameState = ScriptableObject.CreateInstance<GameState>();
         gameState.playerName = name;
-        Debug.Log("Player name is " + name);
+        Debug.Log("Player name is " + gameState.playerName);
     }
 }
