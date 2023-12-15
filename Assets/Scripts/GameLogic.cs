@@ -71,7 +71,7 @@ public class GameLogic : MonoBehaviour
     {
         int baseScorePerMeter = 10;
         int scoreIncrease = baseScorePerMeter * (int)gameState.distanceTraveled;
-        int bonusScore = (int)(scoreIncrease * (1.0f + gameState.bacPercent));
+        int bonusScore = (int)(scoreIncrease * (1.0f + (2 * gameState.bacPercent)));
         gameState.score = bonusScore;
     }
 
