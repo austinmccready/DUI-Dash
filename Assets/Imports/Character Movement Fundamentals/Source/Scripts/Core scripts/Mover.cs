@@ -67,11 +67,11 @@ namespace CMF
 		void OnValidate()
 		{
 			//Recalculate collider dimensions;
-			if(this.gameObject.activeInHierarchy)
+			if (this.gameObject.activeInHierarchy)
 				RecalculateColliderDimensions();
 
 			//Recalculate raycast array preview positions;
-			if(sensorType == Sensor.CastType.RaycastArray)
+			if (sensorType == Sensor.CastType.RaycastArray)
 				raycastArrayPreviewPositions = 
 					Sensor.GetRaycastStartPositions(sensorArrayRows, sensorArrayRayCount, sensorArrayRowsAreOffset, 1f);
 		}
@@ -132,7 +132,7 @@ namespace CMF
 			}
 
 			//Set collider dimensions based on collider variables;
-			if(boxCollider)
+			if (boxCollider)
 			{
 				Vector3 _size = Vector3.zero;
 				_size.x = colliderThickness;
@@ -143,31 +143,31 @@ namespace CMF
 				_size.y = colliderHeight * (1f - stepHeightRatio);
 				boxCollider.size = _size;
 
-				boxCollider.center = boxCollider.center + new Vector3(0f, stepHeightRatio * colliderHeight/2f, 0f);
+				boxCollider.center = boxCollider.center + new Vector3(0f, stepHeightRatio * colliderHeight / 2f, 0f);
 			}
-			else if(sphereCollider)
+			else if (sphereCollider)
 			{
-				sphereCollider.radius = colliderHeight/2f;
+				sphereCollider.radius = colliderHeight / 2f;
 				sphereCollider.center = colliderOffset * colliderHeight;
 
 				sphereCollider.center = sphereCollider.center + new Vector3(0f, stepHeightRatio * sphereCollider.radius, 0f);
 				sphereCollider.radius *= (1f - stepHeightRatio);
 			}
-			else if(capsuleCollider)
+			else if (capsuleCollider)
 			{
 				capsuleCollider.height = colliderHeight;
 				capsuleCollider.center = colliderOffset * colliderHeight;
-				capsuleCollider.radius = colliderThickness/2f;
+				capsuleCollider.radius = colliderThickness / 2f;
 
-				capsuleCollider.center = capsuleCollider.center + new Vector3(0f, stepHeightRatio * capsuleCollider.height/2f, 0f);
+				capsuleCollider.center = capsuleCollider.center + new Vector3(0f, stepHeightRatio * capsuleCollider.height / 2f, 0f);
 				capsuleCollider.height *= (1f - stepHeightRatio);
 
-				if(capsuleCollider.height/2f < capsuleCollider.radius)
-					capsuleCollider.radius = capsuleCollider.height/2f;
+				if (capsuleCollider.height / 2f < capsuleCollider.radius)
+					capsuleCollider.radius = capsuleCollider.height / 2f;
 			}
 
 			//Recalibrate sensor variables to fit new collider dimensions;
-			if(sensor != null)
+			if (sensor != null)
 				RecalibrateSensor();
 		}
 

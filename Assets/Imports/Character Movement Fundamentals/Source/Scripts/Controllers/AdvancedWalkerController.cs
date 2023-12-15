@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 namespace CMF
@@ -25,7 +26,8 @@ namespace CMF
 		//gamestate
 		public GameState gameState;
 		//Movement speed;
-		public float movementSpeed = 80f;
+		public float movementSpeed = 40f;
+		const float originMoveSpeed = 40f;
 
 		//How fast the controller can change direction while in the air;
 		//Higher values result in more air control;
@@ -80,7 +82,7 @@ namespace CMF
 		
 		//Get references to all necessary components;
 		void Awake () {
-			mover = GetComponent<Mover>();
+            mover = GetComponent<Mover>();
 			tr = transform;
 			characterInput = GetComponent<CharacterInput>();
 			ceilingDetector = GetComponent<CeilingDetector>();
@@ -98,7 +100,7 @@ namespace CMF
 		void Update()
 		{
 			HandleJumpKeyInput();
-		}
+        }
 
         //Handle jump booleans for later use in FixedUpdate;
         void HandleJumpKeyInput()
@@ -126,8 +128,10 @@ namespace CMF
 		//This function must be called every fixed update, in order for the controller to work correctly;
 		void ControllerUpdate()
 		{
+
             //set movespeed based on bac
-            movementSpeed = movementSpeed * 1 + gameState.bacPercent;
+            movementSpeed = originMoveSpeed * (1.15f + gameState.bacPercent);
+
 
             //Check if mover is grounded;
             mover.CheckForGround();
