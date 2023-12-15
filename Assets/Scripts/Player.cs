@@ -43,6 +43,14 @@ public class Player : MonoBehaviour
             gameLogic.GameOver();
         }
 
+        if (collision.CompareTag("Obstacle"))
+        {
+            player.clip = crash;
+            player.Play();
+            Debug.Log("You crashed!");
+            gameLogic.GameOver();
+        }
+
         if (collision.CompareTag("BoozeBottle"))
         {
             gameLogic.CollectedBoozeBottle();

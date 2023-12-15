@@ -10,6 +10,7 @@ TagManager:
   - WaterBottle
   - Breathalyzer
   - EnemyCar
+  - Obstacle
   layers:
   - Default
   - TransparentFX
