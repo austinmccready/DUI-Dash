@@ -24,10 +24,7 @@ namespace CMF
 
 		public override float GetVerticalMovementInput()
 		{
-			if(useRawInput)
-				return Input.GetAxisRaw(verticalInputAxis);
-			else
-				return Input.GetAxis(verticalInputAxis);
+			return 1;
 		}
 
 		public override bool IsJumpKeyPressed()
