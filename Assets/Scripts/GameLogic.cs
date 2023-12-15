@@ -28,6 +28,8 @@ public class GameLogic : MonoBehaviour
         gameState.isGameOver = false;
 
         player = GameObject.Find("Player");
+
+        InvokeRepeating("CalculateScore", 0, 0.1f);
     }
 
     // Update is called once per frame
@@ -63,6 +65,14 @@ public class GameLogic : MonoBehaviour
     public void CollectedBreathalyzer()
     {
 
+    }
+
+    public void CalculateScore()
+    {
+        int baseScorePerMeter = 10;
+        int scoreIncrease = baseScorePerMeter * (int)gameState.distanceTraveled;
+        int bonusScore = (int)(scoreIncrease * (1.0f + gameState.bacPercent));
+        gameState.score = bonusScore;
     }
 
     public void GameOver()

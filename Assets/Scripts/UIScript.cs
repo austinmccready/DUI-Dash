@@ -15,6 +15,9 @@ public class UIScript : MonoBehaviour
     TextMeshProUGUI bacPercent;
 
     [SerializeField]
+    TextMeshProUGUI score;
+
+    [SerializeField]
     GameState gameState;
 
     [SerializeField]
@@ -36,6 +39,7 @@ public class UIScript : MonoBehaviour
     {
         distanceTraveled.text = gameState.distanceTraveled.ToString() + "m";
         bacPercent.text = gameState.bacPercent.ToString("F2") + "% BAC";
+        score.text = gameState.score.ToString("N0") + "pts";
 
         if (gameState.isGameOver && !displayedGameOver)
         {
@@ -48,12 +52,13 @@ public class UIScript : MonoBehaviour
     {
         gameOverText.text = gameState.playerName + "\n" +
             "You drove: " + gameState.distanceTraveled + "m \n" +
-            "You scored: " + gameState.score + "\n\n" +
+            "You scored: " + gameState.score + " points\n\n" +
             "You drank " + gameState.boozeCollected + " booze, " + gameState.bourbonCollected + " bourbon, and " + gameState.waterBottlesCollected + " waters";
 
         playerName.text = "";
         distanceTraveled.text = "";
         bacPercent.text = "";
+        score.text = "";
         gameOverMenu.SetActive(true);
     }
 }
