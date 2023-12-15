@@ -15,14 +15,17 @@ namespace CMF
 		protected CharacterInput characterInput;
 		protected CeilingDetector ceilingDetector;
 
+
         //Jump key variables;
         bool jumpInputIsLocked = false;
         bool jumpKeyWasPressed = false;
 		bool jumpKeyWasLetGo = false;
 		bool jumpKeyIsPressed = false;
 
+		//gamestate
+		public GameState gameState;
 		//Movement speed;
-		public float movementSpeed = 7f;
+		public float movementSpeed = 80f;
 
 		//How fast the controller can change direction while in the air;
 		//Higher values result in more air control;
@@ -81,7 +84,6 @@ namespace CMF
 			tr = transform;
 			characterInput = GetComponent<CharacterInput>();
 			ceilingDetector = GetComponent<CeilingDetector>();
-
 			if(characterInput == null)
 				Debug.LogWarning("No character input script has been attached to this gameobject", this.gameObject);
 
@@ -124,8 +126,11 @@ namespace CMF
 		//This function must be called every fixed update, in order for the controller to work correctly;
 		void ControllerUpdate()
 		{
-			//Check if mover is grounded;
-			mover.CheckForGround();
+            //set movespeed based on bac
+            movementSpeed = movementSpeed * 1 + gameState.bacPercent;
+
+            //Check if mover is grounded;
+            mover.CheckForGround();
 
 			//Determine controller state;
 			currentControllerState = DetermineControllerState();
@@ -153,7 +158,11 @@ namespace CMF
 			//This enables the player to walk up/down stairs and slopes without losing ground contact;
 			mover.SetExtendSensorRange(IsGrounded());
 
-			//Set mover velocity;		
+			//Set mover velocity;
+			if(_velocity.x != 0)
+			{
+				_velocity.x = (_velocity.x / 100f) * 30;
+			}
 			mover.SetVelocity(_velocity);
 
 			//Store velocity for next frame;

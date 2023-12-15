@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.45029587, g: 0.50032026, b: 0.57533413, a: 1}
+  m_IndirectSpecularColor: {r: 0.45029557, g: 0.5003196, b: 0.5753337, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -396,12 +396,20 @@ PrefabInstance:
       value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 114662181522014216, guid: a00ef768dbc458c49b48d4172fcdc73f, type: 3}
+      propertyPath: gameState
+      value: 
+      objectReference: {fileID: 11400000, guid: 083c2d51f0161e446aeb8915f5e9f2ec, type: 2}
+    - target: {fileID: 114662181522014216, guid: a00ef768dbc458c49b48d4172fcdc73f, type: 3}
       propertyPath: airFriction
       value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 114662181522014216, guid: a00ef768dbc458c49b48d4172fcdc73f, type: 3}
       propertyPath: movementSpeed
-      value: 30
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 114662181522014216, guid: a00ef768dbc458c49b48d4172fcdc73f, type: 3}
+      propertyPath: useLocalMomentum
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114686664363620640, guid: a00ef768dbc458c49b48d4172fcdc73f, type: 3}
       propertyPath: jumpKey
