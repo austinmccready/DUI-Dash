@@ -18,9 +18,6 @@ public class UIScript : MonoBehaviour
     GameState gameState;
 
     [SerializeField]
-    GameObject gameUI;
-
-    [SerializeField]
     GameObject gameOverMenu;
 
     [SerializeField]
@@ -54,7 +51,9 @@ public class UIScript : MonoBehaviour
             "You scored: " + gameState.score + "\n\n" +
             "You drank " + gameState.boozeCollected + " booze, " + gameState.bourbonCollected + " bourbon, and " + gameState.waterBottlesCollected + " waters";
 
-        gameUI.SetActive(false);
+        playerName.text = "";
+        distanceTraveled.text = "";
+        bacPercent.text = "";
         gameOverMenu.SetActive(true);
     }
 }
