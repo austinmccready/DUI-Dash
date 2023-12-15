@@ -557,7 +557,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c917acfd1fae2524794bd4ac6e9dc679, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  obstacles: []
+  obstacles:
+  - {fileID: 124036, guid: e68faaa5192b504429a181aad36d18c1, type: 3}
+  - {fileID: 135316, guid: 4707581494a4031438fbad227829f0db, type: 3}
+  - {fileID: 184236, guid: 28b84caef8a775346bad0707768b08d0, type: 3}
   collectables:
   - {fileID: 9086896065498463304, guid: d4571e8182500a149a220c5808f204fb, type: 3}
   - {fileID: 5066340988505973283, guid: 429b42db857d81a439c8dfd850748ed4, type: 3}
