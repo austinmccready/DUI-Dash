@@ -26,7 +26,7 @@ public class SpawnManager : MonoBehaviour
     {
         roadSpawner.MoveRoad();
         plotSpawner.SpawnSidePlot();
-        //obstacleSpawner.SpawnObstacles();
+        obstacleSpawner.SpawnObstacles();
         obstacleSpawner.SpawnCollectables();
         obstacleSpawner.SpawnEnemyCars();
     }
