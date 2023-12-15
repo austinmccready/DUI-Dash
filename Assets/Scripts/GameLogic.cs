@@ -107,8 +107,8 @@ public class GameLogic : MonoBehaviour
     {
      
         // Modify vignette, lens distortion, and chromatic aberration based on BAC
-        vignette.intensity.value = Mathf.Clamp01(0.25f + (gameState.bacPercent*1.5f));
-        lensDistortion.intensity.value = Mathf.Clamp01(gameState.bacPercent*2500);
-        chromaticAberration.intensity.value = Mathf.Clamp01(250f * gameState.bacPercent);
+        vignette.intensity.value = Mathf.Clamp01(0.25f + (gameState.bacPercent));
+        lensDistortion.intensity.value = Mathf.Clamp01(gameState.bacPercent*100f);
+        chromaticAberration.intensity.value = Mathf.Clamp01(2f * gameState.bacPercent);
     }
 }
