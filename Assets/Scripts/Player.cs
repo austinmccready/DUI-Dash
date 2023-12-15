@@ -5,8 +5,22 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public SpawnManager spawnManager;
+    public AudioClip slurp;
+    public AudioClip crash;
+
+    private AudioSource player;
 
     private GameLogic gameLogic;
+
+
+    public void Start() // for Drink slurp 
+    {
+        player = GetComponent<AudioSource>();
+        player.clip = slurp;
+
+
+        
+    }
 
     private void Awake()
     {
@@ -23,6 +37,8 @@ public class Player : MonoBehaviour
 
         if (collision.CompareTag("EnemyCar"))
         {
+            player.clip = crash;
+            player.Play();
             Debug.Log("You crashed!");
             gameLogic.GameOver();
         }
@@ -30,16 +46,19 @@ public class Player : MonoBehaviour
         if (collision.CompareTag("BoozeBottle"))
         {
             gameLogic.CollectedBoozeBottle();
+            player.Play();
             Destroy(collision.gameObject);
         }
         else if (collision.CompareTag("BourbonBottle"))
         {
             gameLogic.CollectedBourbonBottle();
+            player.Play();
             Destroy(collision.gameObject);
         }
         else if (collision.CompareTag("WaterBottle"))
         {
             gameLogic.CollectedWaterBottle();
+            player.Play();
             Destroy(collision.gameObject);
         }
         else if (collision.CompareTag("Breathalyzer"))
