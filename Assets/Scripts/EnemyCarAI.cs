@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyCarAI : MonoBehaviour
 {
-    private float movementSpeed = 8f;
+    private float movementSpeed = 5f;
     private Rigidbody enemyRb;
     private GameObject player;
     private float reactDistance = 50f;
