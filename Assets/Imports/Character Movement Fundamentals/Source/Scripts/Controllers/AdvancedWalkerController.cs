@@ -17,9 +17,9 @@ namespace CMF
 		protected CeilingDetector ceilingDetector;
 
 
-        //Jump key variables;
-        bool jumpInputIsLocked = false;
-        bool jumpKeyWasPressed = false;
+		//Jump key variables;
+		bool jumpInputIsLocked = false;
+		bool jumpKeyWasPressed = false;
 		bool jumpKeyWasLetGo = false;
 		bool jumpKeyIsPressed = false;
 
@@ -27,7 +27,7 @@ namespace CMF
 		public GameState gameState;
 		//Movement speed;
 		public float movementSpeed = 40f;
-		const float originMoveSpeed = 40f;
+		public float prevBac = .02f;
 
 		//How fast the controller can change direction while in the air;
 		//Higher values result in more air control;
@@ -58,7 +58,7 @@ namespace CMF
 		public float gravity = 30f;
 		[Tooltip("How fast the character will slide down steep slopes.")]
 		public float slideGravity = 5f;
-		
+
 		//Acceptable slope angle limit;
 		public float slopeLimit = 80f;
 
@@ -74,19 +74,19 @@ namespace CMF
 			Rising,
 			Jumping
 		}
-		
+
 		ControllerState currentControllerState = ControllerState.Falling;
 
 		[Tooltip("Optional camera transform used for calculating movement direction. If assigned, character movement will take camera view into account.")]
 		public Transform cameraTransform;
-		
+
 		//Get references to all necessary components;
-		void Awake () {
-            mover = GetComponent<Mover>();
+		void Awake() {
+			mover = GetComponent<Mover>();
 			tr = transform;
 			characterInput = GetComponent<CharacterInput>();
 			ceilingDetector = GetComponent<CeilingDetector>();
-			if(characterInput == null)
+			if (characterInput == null)
 				Debug.LogWarning("No character input script has been attached to this gameobject", this.gameObject);
 
 			Setup();
@@ -100,26 +100,26 @@ namespace CMF
 		void Update()
 		{
 			HandleJumpKeyInput();
-        }
+		}
 
-        //Handle jump booleans for later use in FixedUpdate;
-        void HandleJumpKeyInput()
-        {
-            bool _newJumpKeyPressedState = IsJumpKeyPressed();
+		//Handle jump booleans for later use in FixedUpdate;
+		void HandleJumpKeyInput()
+		{
+			bool _newJumpKeyPressedState = IsJumpKeyPressed();
 
-            if (jumpKeyIsPressed == false && _newJumpKeyPressedState == true)
-                jumpKeyWasPressed = true;
+			if (jumpKeyIsPressed == false && _newJumpKeyPressedState == true)
+				jumpKeyWasPressed = true;
 
-            if (jumpKeyIsPressed == true && _newJumpKeyPressedState == false)
-            {
-                jumpKeyWasLetGo = true;
-                jumpInputIsLocked = false;
-            }
+			if (jumpKeyIsPressed == true && _newJumpKeyPressedState == false)
+			{
+				jumpKeyWasLetGo = true;
+				jumpInputIsLocked = false;
+			}
 
-            jumpKeyIsPressed = _newJumpKeyPressedState;
-        }
+			jumpKeyIsPressed = _newJumpKeyPressedState;
+		}
 
-        void FixedUpdate()
+		void FixedUpdate()
 		{
 			ControllerUpdate();
 		}
@@ -129,8 +129,22 @@ namespace CMF
 		void ControllerUpdate()
 		{
 
-            //set movespeed based on bac
-            movementSpeed = originMoveSpeed * (1.15f + gameState.bacPercent);
+			//set movespeed based on bac
+			if (prevBac != gameState.bacPercent)
+			{
+				if (gameState.bacPercent > .25f)
+				{
+					movementSpeed += 1.25f;
+					prevBac = gameState.bacPercent;
+				}
+				else
+				{
+					movementSpeed = movementSpeed * 1.05f;
+					prevBac = gameState.bacPercent;
+				}
+
+		}
+	
 
 
             //Check if mover is grounded;
